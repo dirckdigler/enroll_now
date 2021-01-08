@@ -1,0 +1,74 @@
+{#
+/**
+  * @file
+  * Default theme implementation for an item list.
+  *
+  * Available variables:
+  *
+  * @see template_preprocess_template_directory()
+  *
+  * @ingroup themeable
+  */
+#}
+
+{{ attach_library('enroll_now/enroll_now') }}
+
+<section class="process-confirmation">
+  <header class="process-confirmation__header">
+    <div class="image-container">
+      <img src="{{ base_url }}/modules/custom/enroll_now/images/congratulatons.svg" alt="placeholder">
+    </div>
+    {% if name %}
+      <h1 class="title">{{ 'Congratulations,'|t }} {{ name }}!</h1>
+    {% endif %}
+    <h2 class="description">{{ 'You are successfully enrolled in the Earn Your Watch program.'|t }}</h2>
+  </header>
+  <article class="process-confirmation__next-steps">
+    <h3 class="title">{{ 'Next steps'|t}}</h3>
+    <p class="description">{{ "Eager to start? Here's the plan:"|t }}</p>
+    <section class="steps">
+      <item class="step">
+        <div class="step__image">
+          <img src="{{ base_url }}/modules/custom/enroll_now/images/watch-124px.svg" alt="placeholder">
+        </div>
+        <div class="step__text">
+          <h4 class="title">{{ 'Get your Apple Watch and set it up'|t }}</h4>
+          <p class="description">{{ 'You can order your new Apple Watch here.'|t }}</p>
+        </div>
+      </item>
+      <item class="step">
+        <div class="step__image">
+          <img src="{{ base_url }}/modules/custom/enroll_now/images/activate-124px.svg" alt="placeholder">
+        </div>
+        <div class="step__text">
+          <h4 class="title">{{ 'Download the BeHealthy app'|t }}</h4>
+          <p class="description">{{ 'Once you unbox and set up your Watch, download our app to your iPhone.'|t }}</p>
+        </div>
+      </item>
+      <item class="step">
+        <div class="step__image">
+          <img src="{{ base_url }}/modules/custom/enroll_now/images/enroll-124px.svg" alt="placeholder">
+        </div>
+        <div class="step__text">
+          <h4 class="title">{{ 'Activate your account'|t }}</h4>
+          <p class="description">{{ 'In the app, request the activation code to start the program. We’ll guide you step by step.'|t }}</p>
+        </div>
+      </item>
+      <item class="step">
+        <div class="step__image">
+          <img src="{{ base_url }}/modules/custom/enroll_now/images/stars-124px.svg" alt="placeholder">
+        </div>
+        <div class="step__text">
+          <h4 class="title">{{ 'Move, exercise and stand!'|t }}</h4>
+          <p class="description">{{ 'Achieve your goals to earn stars, and your Watch.'|t }}</p>
+        </div>
+      </item>
+    </section>
+  </article>
+  <footer class="process-confirmation__footer">
+    <h3 class="title">{{ 'Need help?'|t }}</h3>
+    <p class="description">{{ 'We’ve got your back. Contact us:'|t }}</p>
+    <a class="email" href="mailto:help@email.com" target="_blank" rel="noopener noreferrer">help@email.com</a>
+    <a class="phone" href="tel:(855) 999 - 4356">(855) 999 - 4356</a>
+  </footer>
+</section>

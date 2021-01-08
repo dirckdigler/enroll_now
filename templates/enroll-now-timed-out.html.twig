@@ -1,0 +1,35 @@
+{#
+  /**
+    * @file
+    * Default theme implementation for an item list.
+    *
+    * Available variables:
+    *
+    * @see template_preprocess_template_directory()
+    *
+    * @ingroup themeable
+    */
+  #}
+
+  {{ attach_library('enroll_now/enroll_now') }}
+
+  <section class="process-error process-error--time-out">
+    <header class="process-error__header">
+      <div class="image-container">
+        {% if image %}
+          <img src="{{ image }}" alt="placeholder">
+        {% else %}
+          <img src="{{ base_url }}/modules/custom/enroll_now/images/timeout_ld.svg" alt="placeholder">
+        {% endif %}  
+      </div>
+      <h2 class="description description-time-out">{{ 'The connection has timed out'|t }}</h2>
+    </header>
+    <article class="process-error__text">
+      <div class="description">
+        {% if body_error %}
+          {{ body_error|raw }}
+        {% endif %}
+      </div>
+      <a href="{{ link_back_to_form }}" class="btn">{{ 'Try again'|t }}</a>
+    </article>
+  </section>

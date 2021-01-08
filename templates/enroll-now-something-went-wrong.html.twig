@@ -1,0 +1,32 @@
+{#
+  /**
+    * @file
+    * Default theme implementation for an item list.
+    *
+    * Available variables:
+    *
+    * @see template_preprocess_template_directory()
+    *
+    * @ingroup themeable
+    */
+  #}
+
+  {{ attach_library('enroll_now/enroll_now') }}
+
+  <section class="process-error process-error--something-wrong">
+    <header class="process-error__header">
+      <div class="image-container">
+        <img src="{{ base_url }}/modules/custom/enroll_now/images/generic_error.svg" alt="placeholder">
+      </div>
+      <h2 class="description">{{ 'We’re sorry, something went wrong...'|t }}</h2>
+    </header>
+    <article class="process-error__text">
+      <div class="description">
+        <p>{{ 'We’re experiencing some issues right now and couldn’t process your enrollment correctly.'|t }}</p>
+        <p>{{ 'Please retry to complete your enrollment.'|t }}</p>
+      </div>
+    </article>
+    <article class="process-error__cta">
+      <a href="{{ link_back_to_form }}" class="btn">{{ 'Retry processing'|t }}</a>
+    </article>
+  </section>

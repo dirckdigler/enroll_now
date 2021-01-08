@@ -1,0 +1,53 @@
+{#
+    /**
+      * @file
+      * Default theme implementation for an item list.
+      *
+      * Available variables:
+      *
+      * @see template_preprocess_template_directory()
+      *
+      * @ingroup themeable
+      */
+    #}
+  
+    {{ attach_library('enroll_now/enroll_now') }}
+
+    <section class="process-error process-error--already-enrolled">
+      <header class="process-error__header">
+        <div class="image-container">
+          <img src="{{ base_url }}/modules/custom/enroll_now/images/already_member.svg" alt="placeholder">
+        </div>
+        <h2 class="description">{{ 'You’re already enrolled'|t }}</h2>
+      </header>
+      <article class="process-error__text">
+        <div class="description">
+          <p>{{ 'An account is already registered with the info you provided:'|t }}</p>
+        </div>
+        <article class="saved-data">
+          {% if email %}
+            <p>{{ email }}</p>
+          {% endif %}
+          {% if phone_number %}
+            <p>{{ phone_number }}</p>
+          {% endif %}
+        </article>
+        <hr class="divisor"/>
+        <article class="message">
+          {% if body_error %}
+            {{ body_error|raw }}
+          {% endif %}
+        </article>
+        <article class="app-button">
+          <a href="https://www.apple.com/watch/" target="_blank">
+            <img src="{{ base_url }}/modules/custom/enroll_now/images/app_store_logo.svg" alt="placeholder">
+          </a>
+        </article>
+      </article>
+      <article class="process-error__cta">
+        {% if link_front_page %}
+          <a href="{{ link_front_page }}" class="btn btn-outlined">{{ 'Go back to homepage'|t }}</a>
+        {% endif %}
+      </article>
+    </section>
+  

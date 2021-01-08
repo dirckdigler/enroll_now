@@ -1,0 +1,49 @@
+{#
+  /**
+    * @file
+    * Default theme implementation for an item list.
+    *
+    * Available variables:
+    *
+    * @see template_preprocess_template_directory()
+    *
+    * @ingroup themeable
+    */
+  #}
+
+  {{ attach_library('enroll_now/enroll_now') }}
+
+  <section class="process-error process-error--cant-join">
+    <header class="process-error__header">
+      <div class="image-container">
+        <img src="{{ base_url }}/modules/custom/enroll_now/images/not-elegible.svg" alt="placeholder">
+      </div>
+      <h2 class="description">{{ 'Looks like you can’t join the program yet'|t }}</h2>
+    </header>
+    <article class="process-error__text">
+      <div class="description">
+        <p>{{ "You currently don't meet the requirements to join the Earn with Watch program."|t }}</p>
+      </div>
+      <hr class="divisor"/>
+      <div class="announce">
+        <p>What to do?</p>
+      </div>
+      <div class="message">
+        {% if body_error %}
+          {{ body_error|raw }}
+        {% endif %}
+      </div>
+    </article>
+    <article class="process-error__cta">
+      {% if link_ld_custom %}
+        <a href="{{ link_ld_custom }}" target="_black" class="btn btn-primary button">
+          {{ 'Become a LD Extras member'|t }}
+        </a>
+      {% endif %}
+      {% if link_front_page %}
+        <a href="{{ link_front_page }}" class="btn btn-primary btn-outlined">
+          {{ 'Go back to homepage'|t }}
+        </a>
+      {% endif %}
+    </article>
+  </section>

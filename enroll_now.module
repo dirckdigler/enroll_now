@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * @file
+ * Contains enroll_now.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function enroll_now_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the enroll_nows module.
+    case 'help.page.enroll_now':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Multistep form to enroll users') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function enroll_now_preprocess_field__block_content__enroll_component(&$variables) {
+  $manage_session_data = \Drupal::service('enroll_now.manage_session_data');
+  $retrieve_fields = ['step'];
+  $step_form = $manage_session_data->retrieveSessionFields($retrieve_fields);
+  
+  $link_enroll_process = Url::fromRoute('enroll_now.check_your_eligibility')
+  ->toString();
+
+  if ($link_enroll_process) {
+    $variables['link'] = $link_enroll_process;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function enroll_now_theme($existing, $type, $theme, $path) {
+  return [
+    'enroll_now_check_your_eligibility' => [
+      'render element' => 'form',
+    ],
+    'enroll_now_my_personal_info' => [
+      'render element' => 'form',
+    ],
+    'enroll_now_you_are_eligible' => [
+      'render element' => 'form',
+    ],
+    'enroll_now_your_reward_plan' => [
+      'render element' => 'form',
+    ],
+    'enroll_now_process_confirmation_success' => [
+      'variables' => [
+        'name' => NULL,
+        'get_product' => NULL,
+      ],
+    ],
+    'enroll_now_process_confirmation_fail' => [
+      'variables' => [
+        'name' => NULL,
+        'get_product' => NULL,
+      ],
+    ],
+    'enroll_now_something_went_wrong' => [
+      'variables' => [
+        'link_back_to_form' => NULL,
+      ]
+    ],
+    'enroll_now_email_address_already_registered' => [
+      'variables' => [
+        'email' => NULL,
+        'link_step_one' => NULL,
+      ]
+    ],
+    'enroll_now_timed_out' => [
+      'variables' => [
+        'link_back_to_form' => NULL,
+        'body_error' => NULL,
+        'image' => NULL,
+      ]
+    ],
+    'enroll_now_credentials_dont_match' => [
+      'variables' => [
+        'link_back_to_form' => NULL,
+        'link_front_page' => NULL,
+        'body_error_credentials' => NULL,
+      ]
+    ],
+    'enroll_now_already_enrolled_error' => [
+      'variables' => [
+        'email' => NULL,
+        'phone_number' => NULL,
+        'link_front_page' => NULL,
+        'body_error' => NULL,
+      ]
+    ],
+    'enroll_now_cant_join_the_program_error' => [
+      'variables' => [
+        'link_front_page' => NULL,
+        'link_ld_custom' => NULL,
+        'body_error' => NULL,
+      ]
+    ],
+  ];
+}

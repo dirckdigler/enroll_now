@@ -1,0 +1,5 @@
+services:
+  enroll_now.manage_session_data:
+    class: Drupal\enroll_now\Service\ManageSessionData
+    arguments: [
+      '@tempstore.private']

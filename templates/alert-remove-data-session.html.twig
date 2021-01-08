@@ -1,0 +1,36 @@
+{#
+  /**
+    * @file
+    * Default theme implementation for an item list.
+    *
+    * Available variables:
+    *
+    * @see template_preprocess_template_directory()
+    *
+    * @ingroup themeable
+    */
+#}
+<!-- Modal -->
+<a id="popup-modal-trigger" data-toggle="modal" data-target="#popup-modal" href="#" class="hidden"></a>
+<div class="modal fade popup-modal" id="popup-modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          {% include '/modules/custom/enroll_now/images/close.svg' %}
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="{{ base_url }}/modules/custom/enroll_now/images/data-alert.svg" alt="data-alert">
+        <h1>{{ 'Leave page?'|t }}</h1>
+        <p>{{ 'All data you have entered will be lost.'|t }}</p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-leave" href="#">
+          {{ 'Leave'|t }}
+        </a>
+        <a class="btn btn-stay" data-dismiss="modal">{{ 'Stay'|t }}</a>
+      </div>
+    </div>
+  </div>
+</div>

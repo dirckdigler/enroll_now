@@ -1,0 +1,274 @@
+@import "../mixins/button";
+
+.process-error {
+  width: $mobile-width;
+  margin: 0 auto;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-general;
+  @media (min-width: $tablet) {
+    padding-top: 104px;
+    width: $tablet-width;
+  }
+  @media (min-width: $desktop) {
+    padding-top: 64px;
+    width: $desktop-width;
+  }
+  .btn {
+    @include button;
+    margin: 30px auto 10px auto;
+    @media (min-width: $tablet) {
+      width: 358px;
+    }
+    @media (min-width: $desktop) {
+      width: 368px;
+    }
+  }
+  .btn-outlined {
+    @include button-outline;
+    margin-top: 10px;
+  }
+  &__header {
+    .image-container {
+      height: 228px;
+      margin-bottom: 32px;
+      width: 335px;
+
+      @media (min-width: $tablet) {
+        margin-bottom: 60px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (min-width: $tablet) {
+        margin-bottom: 56px;
+      }
+    }
+    .description {
+      color: $neutral-dark-80;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 48px;
+      margin-bottom: 20px;
+      margin-top: 0;
+
+      @media (min-width: $tablet) {
+        width: 484px;
+        text-align: center;
+      }
+      @media (min-width: $desktop) {
+        width: 560px;
+      }
+    }
+    .description-time-out {
+      padding: 20px;
+    }
+  }
+  &__cta {
+    margin: 0 auto;
+    width: $mobile-width;
+    @media (min-width: $tablet) {
+      width: 358px;
+    }
+    @media (min-width: $desktop) {
+      width: 368px;
+    }
+  }
+  &__text {
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-direction: column;
+      width: 484px;
+    }
+    @media (min-width: $desktop) {
+      width: 560px;
+    }
+    .process-error--something-wrong & {
+      margin-bottom: 44px;
+      @media (min-width: $desktop) {
+        margin-bottom: 48px;
+      }
+      .description {
+        text-align: center;
+        @media (max-width: $mobile) {
+          text-align: left;
+        }
+      }
+    }
+    .process-error--cant-join & {
+      .divisor {
+        border-top: 1px solid $neutral-light-60;
+        margin-bottom: 30px;
+        margin-top: 8px;
+        width: 335px;
+      }
+      .announce {
+        color: $ld-form-title;
+        font-size: $font-20;
+        font-weight: 700;
+        text-align: center;
+
+        @media (max-width: $mobile) {
+          text-align: left;
+        }
+      }
+      .message {
+        padding: 0 50px;
+        text-align: center;
+
+        @media (max-width: $mobile) {
+          text-align: left;
+          padding: 0;
+        }
+      }
+    }
+    .process-error--already-enrolled & {
+      .description {
+        text-align: center;
+        @media (max-width: $mobile) {
+          text-align: left;
+        }
+      }
+      .saved-data {
+        color: $ld-form-title;
+        font-size: $font-20;
+        font-weight: 700;
+        margin-bottom: 14px;
+        text-align: center;
+        @media (max-width: $mobile) {
+          text-align: left;
+        }
+        p {
+          margin: 0;
+        }
+      }
+
+      .divisor {
+        border-top: 1px solid $neutral-light-60;
+        width: 335px;
+      }
+      .message {
+        margin-top: 12px;
+        p {
+          margin: 0;
+        }
+      }
+
+      .divisor {
+        border-top: 1px solid $neutral-light-60;
+        width: 335px;
+      }
+
+      .message {
+        margin-top: 12px;
+        p {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+
+          &:nth-child(2) {
+            margin-top: 20px;
+            text-align: center;
+          }
+        }
+      }
+
+      .app-button {
+        margin-bottom: 30px;
+        margin-top: 15px;
+        text-align: center;
+      }
+    }
+    .process-error--time-out & {
+      .description {
+        p {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 24px;
+          @media (min-width: $tablet) {
+            text-align: center;
+          }
+        }
+        ul {
+          padding-left: 44px;
+          margin-bottom: 48px;
+          li {
+            position: relative;
+            &::before {
+              background-image: url("../images/list-disc.svg");
+              background-position: center;
+              background-repeat: no-repeat;
+              content: "";
+              height: 24px;
+              left: -44px;
+              position: absolute;
+              width: 24px;
+            }
+          }
+        }
+      }
+    }
+    .process-error--dont-match & {
+      .description {
+        text-align: center;
+
+        @media (max-width: $mobile) {
+          text-align: left;
+        }
+      }
+    }
+    .description {
+      p {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        .message {
+          margin-top: 12px;
+          p {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+
+            &:nth-child(2) {
+              margin-top: 20px;
+              text-align: center;
+            }
+          }
+        }
+
+        .app-button {
+          margin-bottom: 30px;
+          text-align: center;
+        }
+      }
+      &--email {
+        .description {
+          margin-bottom: 48px;
+          @media (min-width: $tablet) {
+            margin-bottom: 44px;
+          }
+          p {
+            margin-bottom: 12px;
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+            &.email {
+              color: $secondary-light-30;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: bold;
+              line-height: 28px;
+              margin-bottom: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

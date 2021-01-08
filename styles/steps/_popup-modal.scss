@@ -1,0 +1,81 @@
+@import '../mixins/button';
+$modal-border-radius: 16px;
+
+.popup-modal {
+  &.show {
+    display: flex!important;
+  }
+  .modal {
+    &-content {
+      border-radius: $modal-border-radius;
+    }
+    &-dialog {
+      margin: auto;
+      width: $mobile-width;
+      @media (min-width: $tablet) {
+        width: 480px;
+      }
+    }
+    &-header {
+      border: none;
+      padding: 20px 20px 8px;
+      .close {
+        margin: 0 0 0 auto;
+        opacity: 1;
+        padding: 0;
+      }
+    }
+    &-body {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px 40px;
+      img {
+        margin-bottom: 12px;
+      }
+      h1, p {
+        text-align: center;
+        width: 100%;
+      }
+      h1 {
+        color: $neutral-dark-80;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 32px;
+        margin: 0 0 32px;
+      }
+      p {
+        color: $neutral-dark-80;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 24px;
+        margin: 0;
+      }
+    }
+    &-footer {
+      border-top-color: $neutral-light-60;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      @media (min-width: $tablet) {
+        padding: 16px 24px;
+      }
+      .btn {
+        flex-grow: 1;
+        margin: 0;
+        text-align: center;
+        max-width: 143px!important;
+        @media (min-width: $tablet) {
+          max-width: 176px!important;
+        }
+        &-leave {
+          @include button-destructive;
+        }
+        &-stay {
+          @include button;
+        }
+      }
+    }
+  }
+}

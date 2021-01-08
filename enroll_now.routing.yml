@@ -1,0 +1,62 @@
+# Form settings. 
+enroll_now.admin_settings:
+  path: '/admin/config/enroll_now'
+  defaults:
+    _form: '\Drupal\enroll_now\Form\EnrollNowConfigurationForm'
+    _title: 'Enroll Now settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+# Forms Multisteps.
+enroll_now.check_your_eligibility:
+  path: 'enroll-now/check-elegibility'
+  defaults:
+    _title: "Let's check your eligibility"
+    _form: '\Drupal\enroll_now\Form\Multistep\CheckYourEligibility'
+  requirements:
+    _permission: 'access content'
+enroll_now.my_personal_info:
+  path: 'enroll-now/my-personal-info'
+  defaults:
+    _title: "My Personal Info"
+    _form: '\Drupal\enroll_now\Form\Multistep\MyPersonalInfo'
+  requirements:
+    _permission: 'access content'
+enroll_now.you_are_eligible:
+  path: '/enroll-now/eligible'
+  defaults:
+    _title: 'Great news! You are eligible'
+    _form: '\Drupal\enroll_now\Form\Multistep\YouAreEligible'
+  requirements:
+    _permission: 'access content'
+enroll_now.your_reward_plan:
+  path: '/enroll-now/reward-plan'
+  defaults:
+    _title: 'Your reward plan'
+    _form: '\Drupal\enroll_now\Form\Multistep\YourRewardPlan'
+  requirements:
+    _permission: 'access content'
+# Controllers.
+enroll_now.process_confirmation:
+  path: 'enroll-now/process-confirmation'
+  defaults:
+    _controller: '\Drupal\enroll_now\Controller\ProcessConfirmation::view'
+    _title: 'Process Confirmation'
+  requirements:
+    _permission: 'access content'
+enroll_now.delete_session_store:
+  path: '/delete-session-store'
+  defaults:
+    _controller: '\Drupal\enroll_now\Controller\ProcessConfirmation::triggerDeleteSessionStore'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+enroll_now.check_member_eligibility:
+  path: '/check-eligibility'
+  defaults:
+    _controller: '\Drupal\enroll_now\Controller\CheckMemberEligibility::validate'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+    

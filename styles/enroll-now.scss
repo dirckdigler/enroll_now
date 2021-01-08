@@ -1,0 +1,222 @@
+@import "../../../../themes/custom/be_healthy/scss/variables.scss";
+@import "./steps/_step-1.scss";
+@import "./steps/_step-2.scss";
+@import "./steps/_step-3.scss";
+@import "./steps/_step-4.scss";
+@import "./steps/_step-4-errors.scss";
+@import "./steps/popup-modal.scss";
+
+
+body > .dropdown-content.select-dropdown {
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.birthday-field {
+  .datepicker-modal {
+    height: 435px;
+    max-width: 325px;
+    position: absolute;
+    top: 70px !important;
+    width: 325px;
+
+    .modal-content {
+      border-color: $gray-cool;
+      border-radius: 8px;
+      .datepicker-date-display {
+        display: none;
+      }
+      .datepicker-calendar-container {
+        width: 316px;
+        .datepicker-calendar {
+          .datepicker-controls {
+            display: flex;
+            justify-content: space-between;
+            width: 296px;
+
+            button {
+              svg {
+                fill: $gray-30;
+              }
+            }
+
+            .month-prev {
+              order: 2;
+            }
+            .selects-container {
+              order: 1;
+              text-indent: 0;
+              width: 220px;
+
+              .select-month {
+                input {
+                  width: 80px;
+                }
+              }
+
+              .select-wrapper {
+                .select-dropdown {
+                  margin: 0;
+                  border-bottom: none;
+                  font-weight: 400;
+                  text-indent: 0;
+                }
+              }
+            }
+            .month-next {
+              order: 3;
+            }
+          }
+          .datepicker-table-wrapper {
+            .datepicker-table {
+              width: 296px;
+              thead {
+                tr {
+                  th {
+                    background-color: $white;
+                    border: none;
+                    abbr {
+                      color: $blue;
+                      font-family: $font-general;
+                      font-size: 12px;
+                      font-weight: 400;
+                    }
+                  }
+                }
+              }
+              tbody {
+                tr {
+                  background-color: $white;
+                  td {
+                    background: $white;
+                    border: none;
+                    font-size: 14px;
+                    color: $gray-60;
+
+                    &.is-today {
+                      .datepicker-day-button {
+                        border: 1px solid $blue-medium;
+                        border-radius: 50%;
+                      }
+                    }
+
+                    &.is-selected {
+                      .datepicker-day-button {
+                        color: $white;
+                        background-color: $blue;
+                        border: none;
+                      }
+                    }
+
+                    &.is-disabled {
+                      color: $neutral-light-30;
+                    }
+
+                    .datepicker-day-button {
+                      line-height: 42px;
+                      &:hover {
+                        background-color: $gray-pale;
+
+                        @media (max-width: $tablet) {
+                          background-color: $blue;
+                          color: $white;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .datepicker-footer {
+          padding: 24px 0 16px 0;
+          width: 296px;
+          .datepicker-clear {
+            display: none;
+          }
+          .confirmation-btns {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            button {
+              font-size: 16px;
+              font-weight: 600;
+              border: 1px solid;
+              height: 40px;
+              width: 140px;
+              border-radius: 12px;
+              transition: all 0.3s ease-in;
+
+              &.datepicker-cancel {
+                background-color: $white;
+                border-color: $blue;
+                color: $blue;
+
+                &:hover {
+                  border-color: $blue-strong;
+                  color: $blue-strong;
+                }
+              }
+
+              &.datepicker-done {
+                background-color: $blue;
+                border-color: $white;
+                color: $white;
+
+                &:hover {
+                  background-color: $blue-strong;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.enroll-previous-button {
+  position: relative;
+  height: 32px;
+  margin-bottom: 14px;
+  margin-left: -8px;
+  margin-right: auto;
+  width: 32px;
+  @media (min-width: $tablet) {
+    margin: 0;
+    position: absolute;
+    top: 16px;
+    left: 35px;
+  }
+  @media (min-width: $desktop) {
+    left: -80px;
+    top: 22px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: url("../images/arrow-left-blue.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 18px;
+    width: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @media (min-width: $tablet) {
+      height: 25px;
+      width: 13px;
+    }
+  }
+}
+
+.input-field span.helper-text {
+  bottom: -12px;
+  font-size: 12px;
+  line-height: 20px;
+  position: absolute;
+  width: 100%;
+}

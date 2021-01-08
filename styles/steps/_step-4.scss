@@ -1,0 +1,207 @@
+.process-confirmation {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-general;
+  margin: 100px auto 36px auto;
+  max-width: $mobile-width;
+
+  @media (max-width: $mobile) {
+    margin: 48px auto;
+  }
+
+  @media (min-width: $tablet) {
+    max-width: $tablet-width;
+    margin-bottom: 44px;
+  }
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+      background-color: $secondary-light-80;
+      content: '';
+      display: block;
+      height: 1px;
+      margin-top: 32px;
+      width: $mobile-width;
+    }
+    .image-container {
+      height: 228px;
+      margin-bottom: 32px;
+      width: 335px;
+    }
+    .title {
+      color: $neutral-dark-80;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 48px;
+      margin-bottom: 20px;
+      margin-top: 0;
+      text-align: left;
+      width: 100%;
+      @media (min-width: $tablet) {
+        width: 484px;
+        text-align: center;
+      }
+    }
+    .description {
+      color: $neutral-dark-60;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 24px;
+      text-align: left;
+      margin: 0;
+      width: 100%;
+      @media (min-width: $tablet) {
+        width: 484px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__next-steps {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 335px;
+    padding-top: 37px;
+    @media (min-width: $tablet) {
+      max-width: initial;
+    }
+    > .title {
+      color: $sea-green;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 28px;
+      margin-bottom: 16px;
+      text-align: left;
+      width: $mobile-width;
+      @media (min-width: $tablet) {
+        text-align: center;
+      }
+    }
+    > .description {
+      color: $neutral-dark-60;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 24px;
+      margin: 0 0 36px;
+      text-align: left;
+      width: 100%;
+      @media (min-width: $tablet) {
+        text-align: center;
+        width: 358px;
+      }
+    }
+    > .steps {
+      border-bottom: 1px solid $secondary-light-80;
+      padding-bottom: 48px;
+      width: $mobile-width;
+    }
+
+    .step {
+      display: flex;
+      &:last-child {
+        .step__image {
+          margin-bottom: 0;
+          &::after {
+            display: none;
+          }
+        }
+      }
+      &__image {
+        margin-bottom: 96px;
+        margin-right: 16px;
+        position: relative;
+        width: 124px;
+        &::after {
+          background-image: url('../images/arrow-down.svg');
+          background-repeat: no-repeat;
+          background-size: contain;
+          bottom: -31px;
+          content: '';
+          height: 35px;
+          left: 50%;
+          position: absolute;
+          transform: translate(-50%, 100%);
+          width: 32px;
+        }
+      }
+      &__text {
+        width: 195px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        .title {
+          color: $neutral-dark-80;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: bold;
+          letter-spacing: -0.25px;
+          line-height: 28px;
+          margin-bottom: 4px;
+        }
+        .description {
+          color: $neutral-dark-60;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 24px;
+          margin: 0;
+          a {
+            color: $blue;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 37px;
+    text-align: left;
+    width: $mobile-width;
+    @media (min-width: $tablet) {
+      text-align: center;
+    }
+    .title {
+      color: $sea-green;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 28px;
+      margin-bottom: 16px;
+    }
+    .description {
+      color: $neutral-dark-60;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .email {
+      color: $secondary-light-30;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .phone {
+      color: $secondary-light-30;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}

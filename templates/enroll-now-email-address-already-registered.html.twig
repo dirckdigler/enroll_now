@@ -1,0 +1,35 @@
+{#
+  /**
+    * @file
+    * Default theme implementation for an item list.
+    *
+    * Available variables:
+    *
+    * @see template_preprocess_template_directory()
+    *
+    * @ingroup themeable
+    */
+  #}
+
+  {{ attach_library('enroll_now/enroll_now') }}
+
+  <section class="process-error">
+    <header class="process-error__header">
+      <div class="image-container">
+        <img src="{{ base_url }}/modules/custom/enroll_now/images/email-taken.svg" alt="placeholder">
+      </div>
+      <h2 class="description">{{ 'Email address is already registered'|t }}</h2>
+    </header>
+    <article class="process-error__text process-error__text--email">
+      <div class="description">
+        <p>{{ 'The email address you provided for registration:'|t }}</p>
+        {% if email %}
+          <p class="email">{{ email }}</p>
+        {% endif %}
+        <p>{{ 'is already in use. Please enter new email to enroll.'|t }}</p>
+      </div>
+      {% if link_step_one %}
+        <a href="{{ link_step_one }}" class="btn">{{ 'Enter new email'|t }}</a>
+      {% endif %}
+    </article>
+  </section>

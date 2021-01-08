@@ -1,0 +1,6 @@
+name: Be Healthy - Enroll Now
+description: Multistep form to enroll users.
+package: Custom
+type: module
+configure: enroll_now.admin_settings
+core_version_requirement: ^8 || ^9

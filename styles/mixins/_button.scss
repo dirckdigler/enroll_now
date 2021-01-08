@@ -1,0 +1,53 @@
+@mixin button {
+  background: $ld-blue;
+  border-color: $ld-blue;
+  border-radius: 12px;
+  color: $white;
+  font-family: Proxima Nova;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 12px 16px;
+  width: 100%;
+  &:hover {
+    color: $white;
+    background-color: $blue-strong;
+    border-color: $blue-strong;
+  }
+  &:disabled {
+    background-color: $neutral-light-30;
+    border-color: $neutral-light-30;
+    color: $neutral-dark-30;
+  }
+}
+
+@mixin button-outline {
+  background-color: $white;
+  border: 1px solid $ld-blue;
+  color: $ld-blue;
+  &:hover {
+    background-color: $white;
+    color: $blue-strong;
+    border-color: $blue-strong;
+  }
+}
+
+@mixin button-destructive {
+  background: none;
+  border-radius: 12px;
+  color: $semantic-error-red;
+  font-family: Proxima Nova;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 12px 16px;
+  width: 100%;
+  border: 1px solid $semantic-error-red;
+  &:hover,
+  &:focus {
+    border-color: $semantic-error-red-light-30;
+    color: $semantic-error-red-light-30;
+  }
+}

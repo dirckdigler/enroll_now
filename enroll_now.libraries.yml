@@ -1,0 +1,11 @@
+enroll_now:
+  js:
+    js/enroll_now.js: {}
+  css:
+    component:
+      styles/enroll-now.min.css: { minified: true }
+
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - be_healthy/materialize
